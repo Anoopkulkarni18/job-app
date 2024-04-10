@@ -1,2 +1,4 @@
 srv/node_modules
 ui/node_modules
+srv/package-lock.json
+ui/package-lock.json
