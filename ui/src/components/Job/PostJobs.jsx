@@ -67,7 +67,7 @@ export default function PostJobs() {
         data,
         { headers: { token: localStorage.getItem("token") } }
       );
-      console.log("post job test");
+
       toast(response.data.message);
     } catch (error) {
       console.log(error);
