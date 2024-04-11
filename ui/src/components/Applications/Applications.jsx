@@ -46,7 +46,7 @@ export default function Applications() {
 
     try {
       const response = await axios.post(
-        "http://localhost:1000/api/v1/application/postApplication",
+        `${process.env.REACT_APP_URI}/api/v1/application/postApplication`,
         formData,
         {
           headers: {

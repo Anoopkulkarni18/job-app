@@ -30,7 +30,7 @@ const App = () => {
         const token = localStorage.getItem("token");
         if (token) {
           const response = await axios.get(
-            "http://localhost:1000/api/v1/user/getUser",
+            `${process.env.REACT_APP_URI}/api/v1/user/getUser`,
             {
               headers: { token: localStorage.getItem("token") },
             }
@@ -69,8 +69,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-
-

@@ -12,9 +12,8 @@ export default function JobDetails() {
   useEffect(() => {
     const fetchJob = async () => {
       try {
-      
         const response = await axios.get(
-          `http://localhost:1000/api/v1/job/getSingleJob/${id}`,
+          `${process.env.REACT_APP_URI}/api/v1/job/getSingleJob/${id}`,
           {
             headers: { token: localStorage.getItem("token") },
           }
@@ -22,7 +21,7 @@ export default function JobDetails() {
         setJob(response.data.job);
       } catch (error) {
         console.log(error);
-        navigate("/*")
+        navigate("/*");
       }
     };
     fetchJob();

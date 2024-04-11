@@ -28,7 +28,7 @@ export default function Login() {
       console.log("Login test");
       e.preventDefault();
       const response = await axios.post(
-        "http://localhost:1000/api/v1/user/login",
+        `${process.env.REACT_APP_URI}/api/v1/user/login`,
         change
       );
       localStorage.setItem("token", response.data.token);
@@ -66,7 +66,10 @@ export default function Login() {
                 Login To Your account
               </h3>
             </div>
-            <form onSubmit={handleLogin} style={{ maxWidth: "400px", margin: "0 auto" }}>
+            <form
+              onSubmit={handleLogin}
+              style={{ maxWidth: "400px", margin: "0 auto" }}
+            >
               <div style={{ marginBottom: "20px" }}>
                 <label style={{ fontSize: "16px", color: "#333" }}>
                   Login As
@@ -157,7 +160,6 @@ export default function Login() {
               </div>
               <button
                 type="submit"
-                
                 style={{
                   width: "100%",
                   padding: "12px",

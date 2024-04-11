@@ -17,7 +17,7 @@ export default function MyApplications() {
       if (user && user.role === "employeer") {
         axios
           .get(
-            "http://localhost:1000/api/v1/application/employeerGetAllApplications",
+            `${process.env.REACT_APP_URI}/api/v1/application/employeerGetAllApplications`,
             { headers: { token: localStorage.getItem("token") } }
           )
           .then((res) => {
@@ -26,7 +26,7 @@ export default function MyApplications() {
       } else {
         axios
           .get(
-            "http://localhost:1000/api/v1/application/jobSeekerGetAllApplications",
+            `${process.env.REACT_APP_URI}/api/v1/application/jobSeekerGetAllApplications`,
             { headers: { token: localStorage.getItem("token") } }
           )
           .then((res) => {
@@ -46,7 +46,7 @@ export default function MyApplications() {
     console.log(id);
     try {
       const res = await axios.delete(
-        `http://localhost:1000/api/v1/application/deleteApplication/${id}`,
+        `${process.env.REACT_APP_URI}/api/v1/application/deleteApplication/${id}`,
         { headers: { token: localStorage.getItem("token") } }
       );
       setApplications((prev) => {

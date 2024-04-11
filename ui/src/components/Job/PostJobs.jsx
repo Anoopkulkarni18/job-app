@@ -63,7 +63,7 @@ export default function PostJobs() {
 
     try {
       const response = await axios.post(
-        "http://localhost:1000/api/v1/job/postJobs",
+        `${process.env.REACT_APP_URI}/api/v1/job/postJobs`,
         data,
         { headers: { token: localStorage.getItem("token") } }
       );

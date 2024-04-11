@@ -19,7 +19,7 @@ export default function Jobs() {
       const fetchJobs = async () => {
         try {
           const { data } = await axios.get(
-            "http://localhost:1000/api/v1/job/getMyJobs",
+            `${process.env.REACT_APP_URI}/api/v1/job/getMyJobs`,
             { headers: { token: localStorage.getItem("token") } }
           );
           setMyJobs(data.myJobs);
@@ -43,9 +43,13 @@ export default function Jobs() {
   const handleUpdateJob = async (jobId) => {
     const updatedJob = myJobs.find((job) => job._id === jobId);
     await axios
-      .put(`http://localhost:1000/api/v1/job/updateJob/${jobId}`, updatedJob, {
-        headers: { token: localStorage.getItem("token") },
-      })
+      .put(
+        `${process.env.REACT_APP_URI}/api/v1/job/updateJob/${jobId}`,
+        updatedJob,
+        {
+          headers: { token: localStorage.getItem("token") },
+        }
+      )
       .then((res) => {
         toast.success(res.data.message);
         setEditingMode(null);
@@ -57,7 +61,7 @@ export default function Jobs() {
 
   const handleDeleteJob = async (jobId) => {
     await axios
-      .delete(`http://localhost:1000/api/v1/job/deleteJob/${jobId}`, {
+      .delete(`${process.env.REACT_APP_URI}/api/v1/job/deleteJob/${jobId}`, {
         headers: { token: localStorage.getItem("token") },
       })
       .then((res) => {
