@@ -31,7 +31,7 @@ export default function Register() {
     try {
       e.preventDefault();
       const response = await axios.post(
-        `${process.env.REACT_APP_URI}/api/v1/user/register`,
+        `https://job-app-zdm4.onrender.com/api/v1/user/register`,
         change
       );
       console.log(change);

@@ -13,7 +13,7 @@ export default function JobDetails() {
     const fetchJob = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_URI}/api/v1/job/getSingleJob/${id}`,
+          `https://job-app-zdm4.onrender.com/api/v1/job/getSingleJob/${id}`,
           {
             headers: { token: localStorage.getItem("token") },
           }

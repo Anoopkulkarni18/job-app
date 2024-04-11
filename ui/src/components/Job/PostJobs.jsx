@@ -63,7 +63,7 @@ export default function PostJobs() {
 
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_URI}/api/v1/job/postJobs`,
+        `https://job-app-zdm4.onrender.com/api/v1/job/postJobs`,
         data,
         { headers: { token: localStorage.getItem("token") } }
       );

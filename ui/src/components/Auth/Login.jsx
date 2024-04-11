@@ -28,7 +28,7 @@ export default function Login() {
       console.log("Login test");
       e.preventDefault();
       const response = await axios.post(
-        `${process.env.REACT_APP_URI}/api/v1/user/login`,
+        `https://job-app-zdm4.onrender.com/api/v1/user/login`,
         change
       );
       localStorage.setItem("token", response.data.token);

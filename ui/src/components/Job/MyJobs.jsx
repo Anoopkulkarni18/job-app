@@ -19,7 +19,7 @@ export default function Jobs() {
       const fetchJobs = async () => {
         try {
           const { data } = await axios.get(
-            `${process.env.REACT_APP_URI}/api/v1/job/getMyJobs`,
+            `https://job-app-zdm4.onrender.com/api/v1/job/getMyJobs`,
             { headers: { token: localStorage.getItem("token") } }
           );
           setMyJobs(data.myJobs);
@@ -44,7 +44,7 @@ export default function Jobs() {
     const updatedJob = myJobs.find((job) => job._id === jobId);
     await axios
       .put(
-        `${process.env.REACT_APP_URI}/api/v1/job/updateJob/${jobId}`,
+        `https://job-app-zdm4.onrender.com/api/v1/job/updateJob/${jobId}`,
         updatedJob,
         {
           headers: { token: localStorage.getItem("token") },
@@ -61,9 +61,12 @@ export default function Jobs() {
 
   const handleDeleteJob = async (jobId) => {
     await axios
-      .delete(`${process.env.REACT_APP_URI}/api/v1/job/deleteJob/${jobId}`, {
-        headers: { token: localStorage.getItem("token") },
-      })
+      .delete(
+        `https://job-app-zdm4.onrender.com/api/v1/job/deleteJob/${jobId}`,
+        {
+          headers: { token: localStorage.getItem("token") },
+        }
+      )
       .then((res) => {
         toast.success(res.data.message);
         setMyJobs((prevJobs) => prevJobs.filter((job) => job._id !== jobId));

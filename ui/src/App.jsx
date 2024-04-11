@@ -30,7 +30,7 @@ const App = () => {
         const token = localStorage.getItem("token");
         if (token) {
           const response = await axios.get(
-            `${process.env.REACT_APP_URI}/api/v1/user/getUser`,
+            `https://job-app-zdm4.onrender.com/api/v1/user/getUser`,
             {
               headers: { token: localStorage.getItem("token") },
             }

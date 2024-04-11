@@ -12,7 +12,7 @@ export default function Jobs() {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .get(`${process.env.REACT_APP_URI}/api/v1/job/getAllJobs`, {
+        .get(`https://job-app-zdm4.onrender.com/api/v1/job/getAllJobs`, {
           headers: { token: localStorage.getItem("token") },
         })
         .then((res) => {

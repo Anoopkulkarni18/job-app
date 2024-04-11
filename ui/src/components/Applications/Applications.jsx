@@ -46,7 +46,7 @@ export default function Applications() {
 
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_URI}/api/v1/application/postApplication`,
+        `https://job-app-zdm4.onrender.com/api/v1/application/postApplication`,
         formData,
         {
           headers: {
