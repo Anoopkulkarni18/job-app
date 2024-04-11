@@ -31,10 +31,12 @@ export default function Navbar() {
           <div>
             <img
               src="./JobZee-logos__white.png"
-              alt="logo"
+              srcSet="./JobZee-logos__white.png 1x, ./JobZee-logos__white.png 2x"
+              alt="Logo"
               style={{ maxWidth: "100px" }}
             />
           </div>
+
           <ul
             style={{
               listStyle: "none",
@@ -43,7 +45,6 @@ export default function Navbar() {
               display: "flex",
               alignItems: "center",
             }}
-            
           >
             <li style={{ marginRight: "20px" }}>
               <Link
